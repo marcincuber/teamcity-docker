@@ -66,14 +66,14 @@ add_agent_1() {
   docker run -d --rm --name teamcity_agent_1  \
     -e SERVER_URL="http://${ip}:8111/"  \
     -v $(pwd)/agent_1/data/:/data/teamcity_agent/conf  \
-    marcincuber/teamcity-agent
+    marcincuber/teamcity-agent:node6
 }
 
 add_agent_2() {
   docker run -d --rm --name teamcity_agent_2  \
     -e SERVER_URL="http://${ip}:8111/"  \
     -v $(pwd)/agent_2/data/:/data/teamcity_agent/conf  \
-    jetbrains/teamcity-minimal-agent
+    marcincuber/teamcity-agent:k8s-aws-full
 }
 
 stop_agent_1() {

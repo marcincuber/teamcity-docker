@@ -49,20 +49,59 @@ sh teamcity_launch_config.sh add_agent_1
 ./teamcity_launch_config.sh add_agent_1
 ```
 
-### TCA Under The Hood
+### Docker Hub repository link
+[To access my Docker Hub Repository Click Me](https://hub.docker.com/r/marcincuber/teamcity-agent/)
+`
+### TCA-node6 Under The Hood
+Image available to be pulled from my docker hub. To do so run;
+```
+docker pull marcincuber/teamcity-agent:node6
+```
+Dockerfile for this agent can be found in `build_dck_agent_node6` folder.
 This image is built on top of TeamCity base image which includes:
 
-ubuntu:xenial (16.04)
-Oracle JRE 8 Update 121, 64 bit
-ant, binutils, curl, git, mercurial, sudo, unzip
-ca-certificates
-build-essential libssl-dev
-Node 6
-nano vim
-python, python-pip, default-jdk, crudini, ruby, ruby-dev, rubygems, jq
-npm with gulp, nsp, grunt
-nvm, rvm
-docker-engine v.1.10.3 (TeamCity agent 10.0)
+1. ubuntu:xenial (16.04)
+2. Oracle JRE 8 Update 121, 64 bit
+3. ant, binutils, curl, git, mercurial, sudo, unzip
+4. ca-certificates
+5. build-essential libssl-dev
+6. Node 6-latest
+7. nano vim
+8. python, python-pip, default-jdk, crudini, ruby, ruby-dev, rubygems, jq
+9. npm with gulp, nsp, grunt
+10. nvm, rvm
+11. docker-engine v.1.10.3 (TeamCity agent 10.0)
+
+### TCA-k8s_aws Under The Hood
+Image available to be pulled from my docker hub. To do so run;
+```
+docker pull marcincuber/teamcity-agent:k8s-aws-full
+```
+Dockerfile for this agent can be found in `build_dck_agent_k8s_aws` folder. This is an extension of the node6 agent with support for 'Kubernetes (k8s)' and cloud.
+Additionall list of packages;
+
+1. zlib1g-dev, libreadline-dev, libyaml-dev, libsqlite3-dev
+2. sqlite3, libxml2-dev, libxslt1-dev, libcurl4-openssl-dev 
+3. python-software-properties, libffi-dev, libgdbm-dev 
+4. libncurses5-dev, automake, libtool, bison, libffi-dev
+5. mysql-client-core-5.7, postgresql-client postgresql-contrib libpq-dev pgadmin3
+6. `AWS` cli
+7. `Kubectl` cli for Kubernetes cluster manipulation
+8. `Kops` tool to create and deploy ready clusters in AWS account 
+
+Base pack;
+
+1. ubuntu:xenial (16.04)
+2. Oracle JRE 8 Update 121, 64 bit
+3. ant, binutils, curl, git, mercurial, sudo, unzip
+4. ca-certificates
+5. build-essential libssl-dev
+6. Node 6-latest
+7. nano vim
+8. python, python-pip, default-jdk, crudini, ruby, ruby-dev, rubygems, jq
+9. npm with gulp, nsp, grunt
+10. nvm, rvm
+11. docker-engine v.1.10.3 (TeamCity agent 10.0)
 
 ### Customise your TCA
 You can customise the image in the usual way and like and other Docker image:
