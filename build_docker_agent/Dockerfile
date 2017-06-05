@@ -19,7 +19,7 @@ RUN apt-get update && \
     apt-get install -y build-essential libssl-dev && \
     \
     curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash - && \
-    apt-get install -y nodejs && \
+    apt-get install -y nodejs nano vim && \
     apt-get install -y python python-pip default-jdk crudini ruby ruby-dev rubygems unzip jq && \
     npm install -g gulp nsp grunt && \
     npm install npm@latest -g && \
